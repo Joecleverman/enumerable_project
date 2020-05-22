@@ -116,18 +116,35 @@ module Enumerable
     count
   end
 
-  def my_map(&proc)
-    return to_enum unless block_given?
+  # def my_map(&proc)
+  #   return to_enum unless block_given?
 
-    array = to_a
-    arr = []
-    n = 0
+  #   array = to_a
+  #   arr = []
+  #   n = 0
 
-    while n < array.size
-      arr << proc.call(array[n])
-      n += 1
+  #   while n < array.size
+  #     arr << proc.call(array[n])
+  #     n += 1
+  #   end
+  #   arr
+  # end
+
+  def my_map(proc = nil)
+    return to_enum(:my_map) if !block_given? && proc.nil?
+
+    map_items = []
+
+    if !proc.nil?
+      my_each_with_index do |n, i|
+        map_items [i] = proc.call(n)
+      end
+    else
+      my_each_with_index do |n, i|
+        map_items [i] = yield n
+      end
     end
-    arr
+    map_items
   end
 
   def my_inject(*array)
@@ -153,9 +170,7 @@ module Enumerable
     elements
   end
 
-  def multiply_els(array)
-    array.my_inject(1) do |arr, n|
-      arr * n
-    end
-  end
+  def multiply_els(arr)
+  arr.my_inject(1) { |element, n| element * n }
+end
 end
