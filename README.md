@@ -2,9 +2,9 @@
 
 This project is for implementing the algorithm of the methods on the Enumerable Module.
 
-Full task description [here](https://www.theodinproject.com/courses/ruby-programming/lessons/advanced-building-blocks#assignment-2)
+Full task description [here](https://github.com/TheOdinProject/curriculum/blob/master/ruby_programming/archive/basic_ruby/project_advanced_building_blocks.md#project-2-enumerable-methods)
 
-Ruby Enumerable Documentation usere [here](https://ruby-doc.org/core-2.6.5/Enumerable.html)
+Ruby Enumerable Documentation [here](https://github.com/TheOdinProject/curriculum/blob/master/ruby_programming/archive/basic_ruby/project_advanced_building_blocks.md#project-2-enumerable-methods)
 
 ## Built With
 
