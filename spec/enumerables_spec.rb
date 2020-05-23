@@ -270,9 +270,9 @@ describe Enumerable do
       expect((1..5).my_inject { |divides, n| divides / n }).to eq(0)
     end
   end
-  describe 'multiply_els' do
-    it 'using my_inject' do
-      expect(multiply_els([2, 4, 5])).to eq(40)
-    end
-  end
+  # describe 'multiply_els' do
+  #   it 'using my_inject' do
+  #     expect(multiply_els([2, 4, 5])).to eq(40)
+  #   end
+  # end
 end
