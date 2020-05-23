@@ -10,4 +10,3 @@ puts 'Test for #my_each'
 puts
 
 
-
