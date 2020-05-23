@@ -81,3 +81,16 @@ puts [1, 2, 4, 2].my_count(2)
 puts([1, 2, 4, 2].my_count { |x| x > 1 })
 
 
+# my_map
+puts 'Test for #my_map'
+print((1..4).my_map { |i| i * i })
+puts
+print([5, 1, 3, 4, 2].my_map { |n| n + 2 })
+puts
+arr_proc = proc { |n| n * 2 }
+print [2, 3, 5, 6, 1, 7, 5, 3, 9].my_map(&arr_proc)
+puts
+print([2, 3, 5, 6, 1, 7, 5, 3, 9].my_map(&arr_proc).my_map { |n| n + 1 })
+puts
+
+
