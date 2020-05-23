@@ -43,3 +43,19 @@ puts [nil, nil, nil].my_all?
 puts [].my_all?
 
 
+# my_any
+puts 'Test for #my_any'
+puts(%w[Marc Luc Jean].my_any? { |word| word.length >= 3 })
+puts(%w[Marc Luc Jean].my_any? { |word| word.length >= 4 })
+puts %w[Marc Luc Jean].my_any?(/d/)
+puts [2, 1, 6, 7, 4, 8, 10].my_any?(7)
+puts %w[Marc Luc Jean].my_any?('Jean')
+puts [nil, true, 99].my_any?(Integer)
+puts ['1', 5i, 5.67].my_any?(Numeric)
+puts [nil, true, 99].my_any?
+puts [nil, false].my_any?
+puts [nil, nil, nil].my_any?
+puts [].my_any?
+
+
+
