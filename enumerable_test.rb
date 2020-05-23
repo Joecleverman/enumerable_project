@@ -58,4 +58,19 @@ puts [nil, nil, nil].my_any?
 puts [].my_any?
 
 
+# my_none
+puts 'Test for #my_none'
+puts(%w[Marc Luc Jean].my_none? { |word| word.length == 5 })
+puts(%w[Marc Luc Jean].my_none? { |word| word.length >= 4 })
+puts %w[Marc Luc Jean].my_none?(/j/)
+puts [2, 1, 6, 7, 4, 8, 10].my_none?(15)
+puts %w[Marc Luc Jean].my_none?('Jean')
+puts [1, 3.14, 42].my_none?(Float)
+puts [1, 5i, 5.67].my_none?(Numeric)
+puts [].my_none?
+puts [nil].my_none?
+puts [nil, false].my_none?
+puts [nil, false, true].my_none?
+puts [nil, nil, nil].my_none?
+
 
