@@ -94,3 +94,17 @@ print([2, 3, 5, 6, 1, 7, 5, 3, 9].my_map(&arr_proc).my_map { |n| n + 1 })
 puts
 
 
+# my_inject
+puts 'Test for #my_inject'
+puts((5..10).my_inject(:+))
+puts([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(:+))
+puts((5..10).my_inject { |sum, n| sum + n })
+puts([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject { |sum, n| sum + n })
+puts((5..10).my_inject(1, :*))
+puts([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1, :*))
+puts((5..10).my_inject(1) { |product, n| product * n })
+puts([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1) { |product, n| product * n })
+longest = %w[Jean sheep Luc].my_inject { |memo, word| memo.size > word.size ? memo : word }
+puts longest
+
+
