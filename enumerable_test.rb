@@ -71,6 +71,13 @@ puts [].my_none?
 puts [nil].my_none?
 puts [nil, false].my_none?
 puts [nil, false, true].my_none?
-puts [nil, nil, nil].my_none?
+puts [nil, nil, nil, nil].my_none?
+
+
+# my_count
+puts 'Test for #my_count'
+puts [1, 2, 4, 2].my_count
+puts [1, 2, 4, 2].my_count(2)
+puts([1, 2, 4, 2].my_count { |x| x > 1 })
 
 
