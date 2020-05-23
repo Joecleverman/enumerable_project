@@ -228,51 +228,45 @@ describe Enumerable do
     end
   end
 
-  describe 'my_inject' do
-    let(:arr_2) { [1, 2, 3, 4] }
-    it 'sums' do
-      expect(arr_2.my_inject(:+)).to eq arr_2.inject(:+)
+  describe '#my_inject' do
+  describe 'when no block given and one parameter present' do
+    it 'returns a combined value of the Range its called on specified by the operator symbol in parameter' do
+      expect((5..10).my_inject(:+)).to eql(45)
     end
-    it 'sums with a starting point' do
-      expect(value3.my_inject(10) { |sum, n| sum + n }).to eq(22)
-    end
-    it 'sums arrays' do
-      expect(value3.my_inject { |sum, n| sum + n }).to eq(12)
-    end
-    it 'sums ranges' do
-      expect((1..5).my_inject { |sum, n| sum + n }).to eq(15)
-    end
-    it 'substracts with a starting point' do
-      expect(value3.my_inject(10) { |substract, n| substract - n }).to eq(-2)
-    end
-    it 'substracts arrays' do
-      expect(value3.my_inject { |substract, n| substract - n }).to eq(-10)
-    end
-    it 'substracts ranges' do
-      expect((1..5).my_inject { |substract, n| substract - n }).to eq(-13)
-    end
-    it 'multiplies with a starting point' do
-      expect(value3.my_inject(10) { |multiplies, n| multiplies * n }).to eq(400)
-    end
-    it 'multiplies arrays' do
-      expect(value3.my_inject { |multiplies, n| multiplies * n }).to eq(40)
-    end
-    it 'multiplies ranges' do
-      expect((1..5).my_inject { |multiplies, n| multiplies * n }).to eq(120)
-    end
-    it 'divides with a starting point' do
-      expect(value3.my_inject(10.2) { |divides, n| divides / n }).to eq(0.255)
-    end
-    it 'divides arrays' do
-      expect(value3.my_inject { |divides, n| divides / n }).to eq(0)
-    end
-    it 'divides ranges' do
-      expect((1..5).my_inject { |divides, n| divides / n }).to eq(0)
+
+    it 'returns a combined value of the Array its called on specified by the operator symbol in parameter' do
+      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(:+)).to eql(41)
     end
   end
-  # describe 'multiply_els' do
-  #   it 'using my_inject' do
-  #     expect(multiply_els([2, 4, 5])).to eq(40)
-  #   end
-  # end
+
+  describe 'when no parameter present and block given' do
+    it 'returns a combined value of the Array its called on specified by the block' do
+      expect((5..10).my_inject { |sum, n| sum + n }).to eql(45)
+    end
+
+    it 'returns a combined value of the Array its called on specified by the block' do
+      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject { |sum, n| sum + n }).to eql(41)
+    end
+  end
+
+  describe 'when two parameters present and no block given' do
+    it 'returns a combined value of  1st param and Range specified by symbol in 2nd param' do
+      expect((5..10).my_inject(1, :*)).to eql(151_200)
+    end
+
+    it 'returns a combined value of 1st param and Array specified by symbol in 2nd param' do
+      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1, :*)).to eql(170_100)
+    end
+  end
+
+  describe 'when one parameter present and block given' do
+    it 'returns a combined value of the Range specified by the block after combining the parameter to 1st element' do
+      expect((5..10).my_inject(1) { |element, n| element * n }).to eql(151_200)
+    end
+
+    it 'returns a combined value of the Array specified by the block after combining the parameter to 1st element' do
+      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1) { |element, n| element * n }).to eql(170_100)
+    end
+  end
+end
 end

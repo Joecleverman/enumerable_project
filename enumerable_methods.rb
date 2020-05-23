@@ -156,7 +156,8 @@ module Enumerable
     elements
   end
 
-  def multiply_els(arr)
-  arr.my_inject(1) { |element, n| element * n }
+  def multiply_els(element)
+  element.my_inject(1) { |element, n| element * n }
 end
+
 end
