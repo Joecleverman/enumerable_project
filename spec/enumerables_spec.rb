@@ -229,44 +229,44 @@ describe Enumerable do
   end
 
   describe '#my_inject' do
-  describe 'when no block given and one parameter present' do
-    it 'returns a combined value of the Range its called on specified by the operator symbol in parameter' do
-      expect((5..10).my_inject(:+)).to eql(45)
+    describe 'when no block given and one parameter present' do
+      it 'returns a combined value of the Range its called on specified by the operator symbol in parameter' do
+        expect((5..10).my_inject(:+)).to eql(45)
+      end
+
+      it 'returns a combined value of the Array its called on specified by the operator symbol in parameter' do
+        expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(:+)).to eql(41)
+      end
     end
 
-    it 'returns a combined value of the Array its called on specified by the operator symbol in parameter' do
-      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(:+)).to eql(41)
+    describe 'when no parameter present and block given' do
+      it 'returns a combined value of the Array its called on specified by the block' do
+        expect((5..10).my_inject { |sum, n| sum + n }).to eql(45)
+      end
+
+      it 'returns a combined value of the Array its called on specified by the block' do
+        expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject { |sum, n| sum + n }).to eql(41)
+      end
+    end
+
+    describe 'when two parameters present and no block given' do
+      it 'returns a combined value of  1st param and Range specified by symbol in 2nd param' do
+        expect((5..10).my_inject(1, :*)).to eql(151_200)
+      end
+
+      it 'returns a combined value of 1st param and Array specified by symbol in 2nd param' do
+        expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1, :*)).to eql(170_100)
+      end
+    end
+
+    describe 'when one parameter present and block given' do
+      it 'returns a combined value of the Range specified by the block after combining the parameter to 1st element' do
+        expect((5..10).my_inject(1) { |element, n| element * n }).to eql(151_200)
+      end
+
+      it 'returns a combined value of the Array specified by the block after combining the parameter to 1st element' do
+        expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1) { |element, n| element * n }).to eql(170_100)
+      end
     end
   end
-
-  describe 'when no parameter present and block given' do
-    it 'returns a combined value of the Array its called on specified by the block' do
-      expect((5..10).my_inject { |sum, n| sum + n }).to eql(45)
-    end
-
-    it 'returns a combined value of the Array its called on specified by the block' do
-      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject { |sum, n| sum + n }).to eql(41)
-    end
-  end
-
-  describe 'when two parameters present and no block given' do
-    it 'returns a combined value of  1st param and Range specified by symbol in 2nd param' do
-      expect((5..10).my_inject(1, :*)).to eql(151_200)
-    end
-
-    it 'returns a combined value of 1st param and Array specified by symbol in 2nd param' do
-      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1, :*)).to eql(170_100)
-    end
-  end
-
-  describe 'when one parameter present and block given' do
-    it 'returns a combined value of the Range specified by the block after combining the parameter to 1st element' do
-      expect((5..10).my_inject(1) { |element, n| element * n }).to eql(151_200)
-    end
-
-    it 'returns a combined value of the Array specified by the block after combining the parameter to 1st element' do
-      expect([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1) { |element, n| element * n }).to eql(170_100)
-    end
-  end
-end
 end

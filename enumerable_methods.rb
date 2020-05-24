@@ -1,3 +1,8 @@
+# rubocop:disable Metrics/ModuleLength
+# rubocop:disable Metrics/CyclomaticComplexity
+# rubocop:disable Metrics/PerceivedComplexity
+# rubocop:disable Metrics/MethodLength
+
 module Enumerable
   def my_each
     array = to_a
@@ -20,20 +25,18 @@ module Enumerable
 
     self
   end
-  
 
   def my_select
-     array = []
+    array = []
     n = 0
     while n < size
       return to_enum unless block_given?
 
-       array << self[n] if yield(self[n])
+      array << self[n] if yield(self[n])
       n += 1
     end
-     array
+    array
   end
-
 
   def my_all?(array = nil)
     if block_given?
@@ -99,8 +102,7 @@ module Enumerable
     true
   end
 
-
-   def my_count(array = nil)
+  def my_count(array = nil)
     return length unless !array.nil? || block_given?
 
     count = 0
@@ -148,16 +150,20 @@ module Enumerable
     end
     arr[0..-1].my_each do |n|
       elements = if symbol
-                 elements.send(symbol, n)
-               else
-                 yield(elements, n)
-               end
+                   elements.send(symbol, n)
+                 else
+                   yield(elements, n)
+                 end
     end
     elements
   end
 
   def multiply_els(element)
-  element.my_inject(1) { |element, n| element * n }
+    element.my_inject(1) { |_element, n| element * n }
+  end
 end
 
-end
+# rubocop:enable Metrics/ModuleLength
+# rubocop:enable Metrics/CyclomaticComplexity
+# rubocop:enable Metrics/PerceivedComplexity
+# rubocop:enable Metrics/MethodLength

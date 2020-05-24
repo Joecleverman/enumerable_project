@@ -4,26 +4,20 @@ require_relative 'enumerable_methods.rb'
 puts 'Test for #my_each'
 %w[Sally Marchony Bill].my_each { |n| print n, ' -- ' }
 puts
-
-
 # my_each_with_index
 puts 'Test for #my_each_with_index'
 hash = {}
-%w[Jean dog Etienne].my_each_with_index { |element, index| hash[element = index }
+%w[Jean dog Etienne].my_each_with_index { |_element, index| hash[_element = index] }
 print hash
 puts
 (1..5).my_each_with_index { |element, index| puts "#{element} => #{index}" }
 puts
 [1, 2, 3, 4, 5].my_each_with_index { |element, index| puts "#{element} => #{index}" }
 puts
-
-
 # my_select
 puts 'Test for #my_select'
 print([2, 1, 6, 7, 4, 8, 10].my_select(&:odd))
 puts
-
-
 # my_all
 puts 'Test for #my_all'
 puts(%w[Marc Luc Jean].my_all? { |text| text.size >= 3 })
@@ -37,8 +31,6 @@ puts [nil, true, 99].my_all?
 puts [nil, false].my_all?
 puts [nil, nil, nil].my_all?
 puts [].my_all?
-
-
 # my_any
 puts 'Test for #my_any'
 puts(%w[Marc Luc Jean].my_any? { |text| text.size >= 3 })
@@ -52,8 +44,6 @@ puts [nil, true, 99].my_any?
 puts [nil, false].my_any?
 puts [nil, nil, nil].my_any?
 puts [].my_any?
-
-
 # my_none
 puts 'Test for #my_none'
 puts(%w[Marc Luc Jean].my_none? { |text| text.size == 5 })
@@ -68,15 +58,11 @@ puts [nil].my_none?
 puts [nil, false].my_none?
 puts [nil, false, true].my_none?
 puts [nil, nil, nil].my_none?
-
-
 # my_count
 puts 'Test for #my_count'
 puts [1, 2, 4, 2].my_count
 puts [1, 2, 4, 2].my_count(2)
 puts([1, 2, 4, 2].my_count { |n| n > 1 })
-
-
 # my_map
 puts 'Test for #my_map'
 print((1..4).my_map { |n| n * n })
@@ -88,8 +74,6 @@ print [2, 3, 5, 6, 1, 7, 5, 3, 9].my_map(&arr_proc)
 puts
 print([2, 3, 5, 6, 1, 7, 5, 3, 9].my_map(&arr_proc).my_map { |n| n + 1 })
 puts
-
-
 # my_inject
 puts 'Test for #my_inject'
 puts((5..10).my_inject(:+))
@@ -102,9 +86,6 @@ puts((5..10).my_inject(1) { |element, n| element * n })
 puts([2, 3, 5, 6, 1, 7, 5, 3, 9].my_inject(1) { |element, n| element * n })
 result = %w[Jean sheep Luc].my_inject { |text, word| text.size > word.size ? text : word }
 puts result
-
 # multiply_els
 puts 'Test for multiply_els'
 puts multiply_els(element)
-
-
