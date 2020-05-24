@@ -29,6 +29,7 @@ To get a local copy up and running follow these simple example steps.
 
 - Clone the repo to your local folder.
 - cd to the folder.
+- install gem by `bundle install`
 - install rspec by `gem install rspec`
 - Run `rspec`.
 - `62 examples, 0 failures` will be the output.
