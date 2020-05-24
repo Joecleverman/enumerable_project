@@ -1,4 +1,4 @@
-# Advanced Building Blocks - Enumerable Methods
+# enumerable_project
 
 This project is for implementing the algorithm of the methods on the Enumerable Module.
 
