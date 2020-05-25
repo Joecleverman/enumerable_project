@@ -16,7 +16,7 @@ puts
 puts
 # my_select
 puts 'Test for #my_select'
-print([2, 1, 6, 7, 4, 8, 10].my_select(&:odd))
+print([2, 1, 6, 7, 4, 8, 10].my_select(&:odd?))
 puts
 # my_all
 puts 'Test for #my_all'
@@ -88,4 +88,6 @@ result = %w[Jean sheep Luc].my_inject { |text, word| text.size > word.size ? tex
 puts result
 # multiply_els
 puts 'Test for multiply_els'
-puts multiply_els(element)
+def multiply_els(element)
+  element.my_inject(1) { |_element, n| element * n }
+end

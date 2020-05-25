@@ -157,10 +157,6 @@ module Enumerable
     end
     elements
   end
-
-  def multiply_els(element)
-    element.my_inject(1) { |_element, n| element * n }
-  end
 end
 
 # rubocop:enable Metrics/ModuleLength
