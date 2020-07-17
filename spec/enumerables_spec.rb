@@ -44,7 +44,7 @@ describe Enumerable do
       expect(empty).to eq([3, 4, 4])
     end
 
-    it 'loops an entire hash' do
+    it 'loops an entir hash' do
       value5.my_each_with_index { |(k, v), idx| hash[k] = v + idx }
       expect(hash).to eq(a: 1, b: 3, c: 2)
     end
